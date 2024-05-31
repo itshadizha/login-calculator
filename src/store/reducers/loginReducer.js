@@ -8,6 +8,8 @@ const initState = {
       case "TOGGLE":
         const newState = { ...state, isLogged: !state.isLogged };
         localStorage.setItem("isLogged", newState.isLogged);
+
+        action.payload.navigate('/')
         return newState;
       default:
         return state;

@@ -2,10 +2,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { actionsOfCalc } from "../store/reducers/calculatorReducer";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Calculator = () => {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.calculator.count);
+  const navigate = useNavigate()
 
   const handleAdd = () => {
     const num = prompt("Enter a number to add:");
@@ -28,7 +30,7 @@ const Calculator = () => {
   };
 
   const toggleLogin = () => {
-    dispatch({ type: "TOGGLE" });
+    dispatch({ type: "TOGGLE" , payload: {navigate}});
   };
 
   return (
